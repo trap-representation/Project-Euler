@@ -4,7 +4,7 @@ import "./lib/import/io.chloreh"
 pushuc 0 pushp std_io call
 pushuc 0 pushuc 0 pushp putl call
 
-pushuc 0 ;this is the final sum of all the numbers
+pushuc 0 ;this is the sum of all the numbers
 pushuc 0
 
 :compute
