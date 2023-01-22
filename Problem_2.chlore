@@ -1,0 +1,25 @@
+import "./lib/import/io.chloreh"
+
+:main
+pushuc 0 pushp std_io call
+pushuc 0 pushuc 0 pushp putl call
+
+pushuc 0 str0 ;store the result in general purpose register 0
+
+pushuc 0
+pushuc 1
+
+:compute
+swap over addl
+dup pushl 4000000 pushp end jle
+dup pushuc 2 swap reml pushp divisible jz
+pushp compute jmp
+
+:divisible
+dup ldr0 addl str0
+pushp compute jmp
+
+:end
+ldr0
+pushuc 0 invoke
+hlt
