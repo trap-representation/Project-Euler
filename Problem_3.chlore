@@ -1,0 +1,32 @@
+import "./lib/import/io.chloreh"
+
+:main
+pushuc 0 pushp std_io call
+pushuc 0 pushuc 0 pushp putl call
+
+pushuc 1 str0
+
+set a 600851475143
+
+set b 2
+
+pushl a
+pushuc b
+
+:compute
+over pushuc 1 pushp end jge
+over over swap reml pushp is_factor jz
+pushuc 1 addl
+pushp compute jmp
+
+:is_factor
+dup str0
+swap over swap divl swap
+pushuc 1 addl
+pushp compute jmp
+
+:end
+ldr0
+pushuc 0 invoke
+hlt
+
