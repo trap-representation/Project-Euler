@@ -6,12 +6,9 @@ pushuc 0 pushuc 0 pushp putl call
 
 pushuc 1 str0
 
-set a 600851475143
+pushl 600851475143
 
-set b 2
-
-pushl a
-pushuc b
+pushuc 2
 
 :compute
 over pushuc 1 pushp end jge
