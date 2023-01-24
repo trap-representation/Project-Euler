@@ -1,0 +1,55 @@
+import "./lib/import/io.chloreh"
+
+:is_palindrome ;`is_palindrome' expects an item of integer type to be at the top of the stack. It pops that item off and pushes 0 (long) if the integer is a palindrome; otherwise, it pushes a non-zero integer (long) at the top.
+swap
+pushuc 0 str0 ;initialize the 0th general purpose register
+dup
+:loop
+dup pushuc 0 pushp end_loop jge
+pushuc 10 over reml ldr0 pushuc 10 mull addl str0
+pushuc 10 swap divl
+pushp loop jmp
+:end_loop
+pop
+ldr0 subl
+swap
+ret
+
+
+:main
+pushuc 0 pushp std_io call
+pushuc 0 pushuc 0 pushp putl call
+pushuc 0 pushuc 1 pushp putchar call
+
+pushuc 0 str1
+
+pushl 999
+:compute
+pushl 999
+:compute_inner
+over over mull dup pushp is_palindrome call pushp update_gpr1_if_greater jz pop
+:continue
+pushuc 1 swap subl
+dup pushuc 0 pushp pop_and_continue jeq
+pushp compute_inner jmp
+
+:update_gpr1_if_greater
+dup ldr1 pushp greater jls
+pop
+pushp continue jmp
+
+:greater
+str1
+pushp continue jmp
+
+:pop_and_continue
+pop
+pushuc 1 swap subl
+dup pushuc 0 pushp end jeq
+pushp compute jmp
+
+:end
+ldr1
+pushuc 0 invoke
+
+hlt
