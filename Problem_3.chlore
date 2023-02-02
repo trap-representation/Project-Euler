@@ -1,9 +1,6 @@
 import "./lib/import/io.chloreh"
 
 :main
-pushuc 0 pushp std_io call
-pushuc 0 pushuc 0 pushp putl call
-
 pushuc 1 str0
 
 pushl 600851475143
@@ -24,6 +21,6 @@ pushp compute jmp
 
 :end
 ldr0
-pushuc 0 invoke
+pushp putl call
 hlt
 

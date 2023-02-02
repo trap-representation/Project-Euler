@@ -1,9 +1,7 @@
+import "./lib/import/stdlib.chloreh"
 import "./lib/import/io.chloreh"
 
 :main
-pushuc 0 pushp std_io call
-pushuc 0 pushuc 0 pushp putl call
-
 pushuc 0 ;this is the sum of all the numbers
 pushuc 0
 
@@ -21,6 +19,6 @@ swap over addl swap pushp compute jmp
 
 :end
 pop
-pushuc 0 invoke
+pushp putl call
 hlt
 

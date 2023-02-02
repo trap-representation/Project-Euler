@@ -1,3 +1,4 @@
+import "./lib/import/stdlib.chloreh"
 import "./lib/import/io.chloreh"
 
 :is_palindrome ;`is_palindrome' expects an item of integer type to be at the top of the stack. It pops that item off and pushes 0 (long) if the integer is a palindrome; otherwise, it pushes a non-zero integer (long) at the top.
@@ -17,10 +18,6 @@ ret
 
 
 :main
-pushuc 0 pushp std_io call
-pushuc 0 pushuc 0 pushp putl call
-pushuc 0 pushuc 1 pushp putchar call
-
 pushuc 0 str1
 
 pushl 999
@@ -50,6 +47,6 @@ pushp compute jmp
 
 :end
 ldr1
-pushuc 0 invoke
+pushp putl call
 
 hlt

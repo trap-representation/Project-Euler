@@ -1,9 +1,7 @@
+import "./lib/import/stdlib.chloreh"
 import "./lib/import/io.chloreh"
 
 :main
-pushuc 0 pushp std_io call
-pushuc 0 pushuc 0 pushp putl call
-
 pushuc 0 str0 ;store the result in general purpose register 0
 
 pushuc 0
@@ -21,5 +19,5 @@ pushp compute jmp
 
 :end
 ldr0
-pushuc 0 invoke
+pushp putl call
 hlt
