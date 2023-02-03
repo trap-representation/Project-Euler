@@ -1,5 +1,5 @@
-import "./lib/import/stdlib.chloreh"
-import "./lib/import/io.chloreh"
+import "stdlib.chloreh"
+import "io.chloreh"
 
 :main
 pushuc 0 str0 ;store the result in general purpose register 0

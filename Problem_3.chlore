@@ -1,4 +1,4 @@
-import "./lib/import/io.chloreh"
+import "io.chloreh"
 
 :main
 pushuc 1 str0
