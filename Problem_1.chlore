@@ -2,16 +2,16 @@ import "stdlib.chloreh"
 import "io.chloreh"
 
 :main
-pushuc 0 ;this is the sum of all the numbers
-pushuc 0
+pushi 0 ;this is the sum of all the numbers
+pushi 0
 
 :compute
-pushuc 1 addl
-dup pushl 1000 pushp end jeq
+pushi 1 addl
+dup pushi 1000 pushp end jeq
 dup
-pushuc 3 swap reml pushp divisible jz
+pushi 3 swap reml pushp divisible jz
 dup
-pushuc 5 swap reml pushp divisible jz
+pushi 5 swap reml pushp divisible jz
 pushp compute jmp
 
 :divisible

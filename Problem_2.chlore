@@ -2,15 +2,15 @@ import "stdlib.chloreh"
 import "io.chloreh"
 
 :main
-pushuc 0 str0 ;store the result in general purpose register 0
+pushi 0 str0 ;store the result in general purpose register 0
 
-pushuc 0
-pushuc 1
+pushi 0
+pushi 1
 
 :compute
 swap over addl
 dup pushl 4000000 pushp end jle
-dup pushuc 2 swap reml pushp divisible jz
+dup pushi 2 swap reml pushp divisible jz
 pushp compute jmp
 
 :divisible
