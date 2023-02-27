@@ -1,5 +1,5 @@
-import "stdlib.chloreh"
-import "io.chloreh"
+import "stdlib.chlore"
+import "io.chlore"
 
 :main
 pushi 0 ;this is the sum of all the numbers
