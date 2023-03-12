@@ -1,26 +1,25 @@
+import "stdlib.chlore"
 import "io.chlore"
 
 :main
-pushi 1 write0
+  pushi 1 write0
+  pushl 600851475143
+  pushi 2
 
-pushl 600851475143
+  :compute
+    over pushi 1 pushp end jge
+    over over swap reml pushp is_factor jz
+    pushi 1 addl
+    pushp compute jmp
 
-pushi 2
+    :is_factor
+      dup write0
+      swap over swap divl swap
+      pushi 1 addl
+      pushp compute jmp
 
-:compute
-over pushi 1 pushp end jge
-over over swap reml pushp is_factor jz
-pushi 1 addl
-pushp compute jmp
-
-:is_factor
-dup write0
-swap over swap divl swap
-pushi 1 addl
-pushp compute jmp
-
-:end
-get0
-pushp putl call
+    :end
+      get0
+      pushp putl call
 hlt
 

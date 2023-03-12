@@ -2,22 +2,22 @@ import "stdlib.chlore"
 import "io.chlore"
 
 :main
-pushi 0 write0 ;store the result in general purpose register 0
+  pushi 0 write0 ;store the result in general purpose register 0
 
-pushi 0
-pushi 1
+  pushi 0
+  pushi 1
 
-:compute
-swap over addl
-dup pushl 4000000 pushp end jle
-dup pushi 2 swap reml pushp divisible jz
-pushp compute jmp
+  :compute
+    swap over addl
+    dup pushl 4000000 pushp end jle
+    dup pushi 2 swap reml pushp divisible jz
+    pushp compute jmp
 
-:divisible
-dup get0 addl write0
-pushp compute jmp
+    :divisible
+      dup get0 addl write0
+      pushp compute jmp
 
-:end
-get0
-pushp putl call
-hlt
+    :end
+      get0
+      pushp putl call
+  hlt

@@ -2,23 +2,23 @@ import "stdlib.chlore"
 import "io.chlore"
 
 :main
-pushi 0 ;this is the sum of all the numbers
-pushi 0
+  pushi 0 ;this is the sum of all the numbers
+  pushi 0
 
-:compute
-pushi 1 addl
-dup pushi 1000 pushp end jeq
-dup
-pushi 3 swap reml pushp divisible jz
-dup
-pushi 5 swap reml pushp divisible jz
-pushp compute jmp
+  :compute
+    pushi 1 addl
+    dup pushi 1000 pushp end jeq
+    dup
+    pushi 3 swap reml pushp divisible jz
+    dup
+    pushi 5 swap reml pushp divisible jz
+    pushp compute jmp
 
-:divisible
-swap over addl swap pushp compute jmp
+    :divisible
+      swap over addl swap pushp compute jmp
 
-:end
-pop
-pushp putl call
-hlt
+    :end
+      pop
+      pushp putl call
+  hlt
 
