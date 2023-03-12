@@ -1,7 +1,7 @@
 import "io.chlore"
 
 :main
-pushi 1 str0
+pushi 1 write0
 
 pushl 600851475143
 
@@ -14,13 +14,13 @@ pushi 1 addl
 pushp compute jmp
 
 :is_factor
-dup str0
+dup write0
 swap over swap divl swap
 pushi 1 addl
 pushp compute jmp
 
 :end
-ldr0
+get0
 pushp putl call
 hlt
 

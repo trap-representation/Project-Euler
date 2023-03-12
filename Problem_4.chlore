@@ -3,22 +3,22 @@ import "io.chlore"
 
 :is_palindrome ;`is_palindrome' expects an item of integer type to be at the top of the stack. It pops that item off and pushes 0 (long) if the integer is a palindrome; otherwise, it pushes a non-zero integer (long) at the top.
 swap
-pushuc 0 str0 ;initialize the 0th general purpose register
+pushuc 0 write0 ;initialize the 0th general purpose register
 dup
 :loop
 dup pushuc 0 pushp end_loop jge
-pushuc 10 over reml ldr0 pushuc 10 mull addl str0
+pushuc 10 over reml get0 pushuc 10 mull addl write0
 pushuc 10 swap divl
 pushp loop jmp
 :end_loop
 pop
-ldr0 subl
+get0 subl
 swap
 ret
 
 
 :main
-pushuc 0 str1
+pushuc 0 write1
 
 pushl 999
 :compute
@@ -31,12 +31,12 @@ dup pushuc 0 pushp pop_and_continue jeq
 pushp compute_inner jmp
 
 :update_gpr1_if_greater
-dup ldr1 pushp greater jls
+dup get1 pushp greater jls
 pop
 pushp continue jmp
 
 :greater
-str1
+write1
 pushp continue jmp
 
 :pop_and_continue
@@ -46,7 +46,7 @@ dup pushuc 0 pushp end jeq
 pushp compute jmp
 
 :end
-ldr1
+get1
 pushp putl call
 
 hlt

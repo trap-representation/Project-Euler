@@ -2,7 +2,7 @@ import "stdlib.chlore"
 import "io.chlore"
 
 :main
-pushi 0 str0 ;store the result in general purpose register 0
+pushi 0 write0 ;store the result in general purpose register 0
 
 pushi 0
 pushi 1
@@ -14,10 +14,10 @@ dup pushi 2 swap reml pushp divisible jz
 pushp compute jmp
 
 :divisible
-dup ldr0 addl str0
+dup get0 addl write0
 pushp compute jmp
 
 :end
-ldr0
+get0
 pushp putl call
 hlt
