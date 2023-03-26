@@ -1,5 +1,5 @@
-import "stdlib.chlore"
-import "io.chlore"
+import "stdlib.chloreh"
+import "io.chloreh"
 
 :main
   pushi 1 write0
