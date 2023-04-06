@@ -21,3 +21,4 @@ import "io.chloreh"
       get0
       pushp putl call
   hlt
+
